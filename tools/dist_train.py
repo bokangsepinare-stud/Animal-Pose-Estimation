@@ -35,7 +35,7 @@ from config import update_config
 from core.loss import MultiLossFactory
 from core.trainer import do_train
 from dataset import make_dataloader
-from fp16_utils.fp16util import network_to_half
+from apex.fp16_utils import network_to_half
 from fp16_utils.fp16_optimizer import FP16_Optimizer
 from utils.utils import create_logger
 from utils.utils import get_optimizer

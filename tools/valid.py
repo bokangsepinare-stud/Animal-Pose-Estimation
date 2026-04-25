@@ -33,7 +33,6 @@ from core.inference import get_multi_stage_outputs
 from core.inference import aggregate_results
 from core.group import HeatmapParser
 from dataset import make_test_dataloader
-from apex.fp16_utils import network_to_half
 from utils.utils import create_logger
 from utils.utils import get_model_summary
 from utils.vis import save_debug_images
@@ -111,7 +110,7 @@ def main():
     logger.info(get_model_summary(model, dump_input, verbose=cfg.VERBOSE))
 
     if cfg.FP16.ENABLED:
-        model = network_to_half(model)
+        model = model.half()
     
     if cfg.TEST.MODEL_FILE:
         logger.info('=> loading model from {}'.format(cfg.TEST.MODEL_FILE))

@@ -266,7 +266,7 @@ class CocoDataset(Dataset):
             )
             key_points = np.zeros(
                 (_key_points.shape[0], num_joints * 3),
-                dtype=np.float
+                dtype=np.float32
             )
 
             for ipt in range(num_joints):
